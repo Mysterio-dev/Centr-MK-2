@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Новости</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20220829170511">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+	<link rel="manifest" href="img/favicon/site.webmanifest">
+	<link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css?_v=20220829170511" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hystmodal@0.5.1/dist/hystmodal.min.css?_v=20220829170511">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__wrapper">
+					<div class="header__left">
+						<div class="header__logo">
+							<a href="index.html">
+								<img src="img/logo.svg" alt="" />
+							</a>
+						</div>
+						<nav class="header__navbar">
+							<ul class="header__navbar-list">
+								<li class="header__navbar-item">
+									<a href="about.html" class="header__navbar-item-link">О компании
+										<svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M8.78641 0.206869C8.64648 0.0733582 8.46138 0 8.26483 0L8.2609 0C8.06516 0.000962183 7.88194 0.0747848 7.74465 0.207865L4.57599 3.23114C4.53413 3.27109 4.46597 3.27116 4.42403 3.23114L1.25437 0.206903C0.967379 -0.066822 0.500536 -0.0668219 0.21132 0.209126C-0.0713243 0.484542 -0.0703158 0.928971 0.213615 1.19988L3.97732 4.79087C4.11472 4.92475 4.2985 4.99901 4.49487 5H4.4988C4.69534 5 4.88044 4.92661 5.02037 4.79313L8.78871 1.19762C9.07131 0.922203 9.07031 0.47774 8.78641 0.206869Z" fill="#373737"></path>
+										</svg>
+									</a>
+									<ul class="header__sub-menu">
+										<li class="header__nav-item">
+											<a href="">Вопрос-ответ</a>
+										</li>
+										<li class="header__nav-item">
+											<a href="">Сотрудники</a>
+										</li>
+										<li class="header__nav-item">
+											<a href="">Документы</a>
+										</li>
+									</ul>
+								</li>
+								<li class="header__navbar-item">
+									<a href="news.html" class="header__navbar-item-link">Новости</a>
+								</li>
+								<li class="header__navbar-item">
+									<a href="person.html" class="header__navbar-item-link">Сотрудники</a>
+								</li>
+								<li class="header__navbar-item">
+									<a href="complex.html" class="header__navbar-item-link">Жилые комплексы</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="header__right">
+						<div class="header__phone">
+							<a href="tel:+74951231234">+7 (495) 123-12-34</a>
+						</div>
+						<button type="button" class="header__callback" data-hystmodal="#callBack">
+							Оставить заявку
+						</button>
+
+						<div class="header__menu menu-js">
+							<div class="header__menu-icons">
+								<span class="header__notify">18</span>
+							</div>
+							<button type="button" class="header__arrow">
+								<svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M8.78641 0.206869C8.64648 0.0733582 8.46138 0 8.26483 0L8.2609 0C8.06516 0.000962183 7.88194 0.0747848 7.74465 0.207865L4.57599 3.23114C4.53413 3.27109 4.46597 3.27116 4.42403 3.23114L1.25437 0.206903C0.967379 -0.066822 0.500536 -0.0668219 0.21132 0.209126C-0.0713243 0.484542 -0.0703158 0.928971 0.213615 1.19988L3.97732 4.79087C4.11472 4.92475 4.2985 4.99901 4.49487 5H4.4988C4.69534 5 4.88044 4.92661 5.02037 4.79313L8.78871 1.19762C9.07131 0.922203 9.07031 0.47774 8.78641 0.206869Z" fill="#373737" />
+								</svg>
+							</button>
+							<div class="header__dropdown nav">
+								<div class="header__adress">г. Москва, ул Ленина 1, кв 12</div>
+								<ul class="header__dropdown-menu">
+									<li>
+										<a class="header__dropdown-link" href="">
+											Уведомления
+											<span class="_notice">10</span>
+										</a>
+									</li>
+									<li><a class="header__dropdown-link" href="">Показания</a></li>
+									<li><a class="header__dropdown-link" href="">Заявки</a></li>
+									<li><a class="header__dropdown-link" href="">Отчеты</a></li>
+									<li><a class="header__dropdown-link" href="">Услуги</a></li>
+								</ul>
+								<button type="button" class="btn__close">
+									<span>Выйти</span>
+									<svg width="18" height="17" viewBox="0 0 18 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path d="M8.50002 15.5834H2.12499C1.73398 15.5834 1.41667 15.266 1.41667 14.875V2.12502C1.41667 1.73402 1.73402 1.4167 2.12499 1.4167H8.50002C8.89172 1.4167 9.20833 1.10009 9.20833 0.708385C9.20833 0.316681 8.89172 0 8.50002 0H2.12499C0.953408 0 0 0.953441 0 2.12502V14.875C0 16.0466 0.953408 17 2.12499 17H8.50002C8.89172 17 9.20833 16.6834 9.20833 16.2917C9.20833 15.9 8.89172 15.5834 8.50002 15.5834Z" fill="currentColor" />
+										<path d="M16.8457 7.99568L12.539 3.74567C12.2613 3.47083 11.8122 3.4744 11.5374 3.75277C11.2626 4.03114 11.2654 4.47951 11.5445 4.75435L14.6222 7.79167H6.37507C5.98336 7.79167 5.66675 8.10828 5.66675 8.49998C5.66675 8.89169 5.98336 9.20834 6.37507 9.20834H14.6222L11.5445 12.2457C11.2654 12.5205 11.2633 12.9689 11.5374 13.2472C11.6762 13.3875 11.859 13.4583 12.0417 13.4583C12.2217 13.4583 12.4016 13.3903 12.539 13.2543L16.8457 9.00429C16.9802 8.87113 17.0567 8.68977 17.0567 8.49995C17.0567 8.3102 16.9809 8.12957 16.8457 7.99568Z" fill="currentColor" />
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+
+					<nav class="menu__body">
+						<div class="menu__body__container">
+							<ul class="menu__list">
+								<li class="menu__item">
+									<a href="about.html" class="menu__link">О компании</a>
+								</li>
+								<li class="menu__item">
+									<a href="news.html" class="menu__link">Новости</a>
+								</li>
+								<li class="menu__item">
+									<a href="person.html" class="menu__link">Сотрудники</a>
+								</li>
+								<li class="menu__item">
+									<a href="complex.html" class="menu__link">Жилые комплексы</a>
+								</li>
+								<li class="menu__item _phone">
+									<a href="tel:+74951231234" class="menu__link">+7 (495) 123-12-34</a>
+								</li>
+								<li class="menu__item _btn">
+									<button type="button" class="header__callback" data-hystmodal="#callBack">
+										Оставить заявку
+									</button>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="news">
+				<div class="news__container">
+					<h1 class="title">Новости</h1>
+					<div class="news__grid">
+						<div class="news__card _big">
+							<img src="img/news/1.png" alt="">
+							<div class="news__card-wrap">
+								<h2 class="news__card-title">
+									Протокол собрания жителей жилого комплекса
+								</h2>
+								<p class="news__card-text">
+									Собственники помещений одного из 17-этажных многоквартирных домов
+									Воронежа в августе провели очное общее собрание. Областная ГЖИ
+									планирует привлечь инициатора ОСС к админ ...
+								</p>
+								<div class="news__card-footer">
+									<div class="news__card-data">
+										8 августа 2022
+									</div>
+									<a href="" class="news__card-link">
+										<svg width="20" height="8" viewBox="0 0 20 8" xmlns="http://www.w3.org/2000/svg">
+											<path d="M19.3536 4.35355C19.5488 4.15829 19.5488 3.84171 19.3536 3.64644L16.1716 0.464465C15.9763 0.269203 15.6597 0.269203 15.4645 0.464465C15.2692 0.659727 15.2692 0.976309 15.4645 1.17157L18.2929 4L15.4645 6.82843C15.2692 7.02369 15.2692 7.34027 15.4645 7.53553C15.6597 7.73079 15.9763 7.73079 16.1716 7.53553L19.3536 4.35355ZM4.37114e-08 4.5L19 4.5L19 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="currentcolor" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="news__card">
+							<img src="img/news/2.jpg" alt="">
+							<div class="news__card-wrap">
+								<h2 class="news__card-title">
+									Протокол собрания жителей жилого комплекса
+								</h2>
+								<div class="news__card-footer">
+									<div class="news__card-data">
+										8 августа 2022
+									</div>
+									<a href="" class="news__card-link">
+										<svg width="20" height="8" viewBox="0 0 20 8" xmlns="http://www.w3.org/2000/svg">
+											<path d="M19.3536 4.35355C19.5488 4.15829 19.5488 3.84171 19.3536 3.64644L16.1716 0.464465C15.9763 0.269203 15.6597 0.269203 15.4645 0.464465C15.2692 0.659727 15.2692 0.976309 15.4645 1.17157L18.2929 4L15.4645 6.82843C15.2692 7.02369 15.2692 7.34027 15.4645 7.53553C15.6597 7.73079 15.9763 7.73079 16.1716 7.53553L19.3536 4.35355ZM4.37114e-08 4.5L19 4.5L19 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="currentcolor" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="news__card">
+							<img src="img/news/3.jpg" alt="">
+							<div class="news__card-wrap">
+								<h2 class="news__card-title">
+									Протокол собрания жителей жилого комплекса
+								</h2>
+								<div class="news__card-footer">
+									<div class="news__card-data">
+										8 августа 2022
+									</div>
+									<a href="" class="news__card-link">
+										<svg width="20" height="8" viewBox="0 0 20 8" xmlns="http://www.w3.org/2000/svg">
+											<path d="M19.3536 4.35355C19.5488 4.15829 19.5488 3.84171 19.3536 3.64644L16.1716 0.464465C15.9763 0.269203 15.6597 0.269203 15.4645 0.464465C15.2692 0.659727 15.2692 0.976309 15.4645 1.17157L18.2929 4L15.4645 6.82843C15.2692 7.02369 15.2692 7.34027 15.4645 7.53553C15.6597 7.73079 15.9763 7.73079 16.1716 7.53553L19.3536 4.35355ZM4.37114e-08 4.5L19 4.5L19 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="currentcolor" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="news__card">
+							<img src="img/news/4.jpg" alt="">
+							<div class="news__card-wrap">
+								<h2 class="news__card-title">
+									Протокол собрания жителей жилого комплекса
+								</h2>
+								<div class="news__card-footer">
+									<div class="news__card-data">
+										8 августа 2022
+									</div>
+									<a href="" class="news__card-link">
+										<svg width="20" height="8" viewBox="0 0 20 8" xmlns="http://www.w3.org/2000/svg">
+											<path d="M19.3536 4.35355C19.5488 4.15829 19.5488 3.84171 19.3536 3.64644L16.1716 0.464465C15.9763 0.269203 15.6597 0.269203 15.4645 0.464465C15.2692 0.659727 15.2692 0.976309 15.4645 1.17157L18.2929 4L15.4645 6.82843C15.2692 7.02369 15.2692 7.34027 15.4645 7.53553C15.6597 7.73079 15.9763 7.73079 16.1716 7.53553L19.3536 4.35355ZM4.37114e-08 4.5L19 4.5L19 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="currentcolor" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="news__card">
+							<img src="img/news/5.jpg" alt="">
+							<div class="news__card-wrap">
+								<h2 class="news__card-title">
+									Протокол собрания жителей жилого комплекса
+								</h2>
+								<div class="news__card-footer">
+									<div class="news__card-data">
+										8 августа 2022
+									</div>
+									<a href="" class="news__card-link">
+										<svg width="20" height="8" viewBox="0 0 20 8" xmlns="http://www.w3.org/2000/svg">
+											<path d="M19.3536 4.35355C19.5488 4.15829 19.5488 3.84171 19.3536 3.64644L16.1716 0.464465C15.9763 0.269203 15.6597 0.269203 15.4645 0.464465C15.2692 0.659727 15.2692 0.976309 15.4645 1.17157L18.2929 4L15.4645 6.82843C15.2692 7.02369 15.2692 7.34027 15.4645 7.53553C15.6597 7.73079 15.9763 7.73079 16.1716 7.53553L19.3536 4.35355ZM4.37114e-08 4.5L19 4.5L19 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="currentcolor" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="news__card">
+							<img src="img/news/6.jpeg" alt="">
+							<div class="news__card-wrap">
+								<h2 class="news__card-title">
+									Протокол собрания жителей жилого комплекса
+								</h2>
+								<div class="news__card-footer">
+									<div class="news__card-data">
+										8 августа 2022
+									</div>
+									<a href="" class="news__card-link">
+										<svg width="20" height="8" viewBox="0 0 20 8" xmlns="http://www.w3.org/2000/svg">
+											<path d="M19.3536 4.35355C19.5488 4.15829 19.5488 3.84171 19.3536 3.64644L16.1716 0.464465C15.9763 0.269203 15.6597 0.269203 15.4645 0.464465C15.2692 0.659727 15.2692 0.976309 15.4645 1.17157L18.2929 4L15.4645 6.82843C15.2692 7.02369 15.2692 7.34027 15.4645 7.53553C15.6597 7.73079 15.9763 7.73079 16.1716 7.53553L19.3536 4.35355ZM4.37114e-08 4.5L19 4.5L19 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="currentcolor" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="news__card">
+							<img src="img/news/7.jpg" alt="">
+							<div class="news__card-wrap">
+								<h2 class="news__card-title">
+									Протокол собрания жителей жилого комплекса
+								</h2>
+								<div class="news__card-footer">
+									<div class="news__card-data">
+										8 августа 2022
+									</div>
+									<a href="" class="news__card-link">
+										<svg width="20" height="8" viewBox="0 0 20 8" xmlns="http://www.w3.org/2000/svg">
+											<path d="M19.3536 4.35355C19.5488 4.15829 19.5488 3.84171 19.3536 3.64644L16.1716 0.464465C15.9763 0.269203 15.6597 0.269203 15.4645 0.464465C15.2692 0.659727 15.2692 0.976309 15.4645 1.17157L18.2929 4L15.4645 6.82843C15.2692 7.02369 15.2692 7.34027 15.4645 7.53553C15.6597 7.73079 15.9763 7.73079 16.1716 7.53553L19.3536 4.35355ZM4.37114e-08 4.5L19 4.5L19 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="currentcolor" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="news__card">
+							<img src="img/news/8.jpg" alt="">
+							<div class="news__card-wrap">
+								<h2 class="news__card-title">
+									Протокол собрания жителей жилого комплекса
+								</h2>
+								<div class="news__card-footer">
+									<div class="news__card-data">
+										8 августа 2022
+									</div>
+									<a href="" class="news__card-link">
+										<svg width="20" height="8" viewBox="0 0 20 8" xmlns="http://www.w3.org/2000/svg">
+											<path d="M19.3536 4.35355C19.5488 4.15829 19.5488 3.84171 19.3536 3.64644L16.1716 0.464465C15.9763 0.269203 15.6597 0.269203 15.4645 0.464465C15.2692 0.659727 15.2692 0.976309 15.4645 1.17157L18.2929 4L15.4645 6.82843C15.2692 7.02369 15.2692 7.34027 15.4645 7.53553C15.6597 7.73079 15.9763 7.73079 16.1716 7.53553L19.3536 4.35355ZM4.37114e-08 4.5L19 4.5L19 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="currentcolor" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="news__card">
+							<img src="img/news/9.jpg" alt="">
+							<div class="news__card-wrap">
+								<h2 class="news__card-title">
+									Протокол собрания жителей жилого комплекса
+								</h2>
+								<div class="news__card-footer">
+									<div class="news__card-data">
+										8 августа 2022
+									</div>
+									<a href="" class="news__card-link">
+										<svg width="20" height="8" viewBox="0 0 20 8" xmlns="http://www.w3.org/2000/svg">
+											<path d="M19.3536 4.35355C19.5488 4.15829 19.5488 3.84171 19.3536 3.64644L16.1716 0.464465C15.9763 0.269203 15.6597 0.269203 15.4645 0.464465C15.2692 0.659727 15.2692 0.976309 15.4645 1.17157L18.2929 4L15.4645 6.82843C15.2692 7.02369 15.2692 7.34027 15.4645 7.53553C15.6597 7.73079 15.9763 7.73079 16.1716 7.53553L19.3536 4.35355ZM4.37114e-08 4.5L19 4.5L19 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z" fill="currentcolor" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__wrapper">
+					<div class="footer__copyright">© 2011-2020 УК Центр МК</div>
+					<div class="footer__link">
+						<a href="vacancy.html">Вакансии</a>
+						<a href="faq.html">FAQ</a>
+						<a href="license.html">Публичная информация</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+	<!-- 
+<div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+			</div>
+		</div>
+	</div>
+</div>
+ -->
+
+
+	<!-- Обратная связь -->
+	<div class="modal hystmodal" id="callBack" aria-hidden="true">
+		<div class="hystmodal__wrap">
+			<div class="hystmodal__window" role="dialog" aria-modal="true">
+				<button data-hystclose class="hystmodal__close"></button>
+				<div class="modal__body">
+					<h1 class="modal__title">Обратная связь</h1>
+
+					<form action="">
+						<div class="modal__form-group">
+							<label class="modal__form-group-label" for="name">
+								Ваше имя:
+							</label>
+							<input type="text" id="name" class="modal__form-group-input" required autocomplete="off"></input>
+						</div>
+						<div class="modal__form-group">
+							<label class="modal__form-group-label" for="mail">
+								E-mail:
+							</label>
+							<input type="email" id="mail" class="modal__form-group-input" required autocomplete="off"></input>
+						</div>
+						<div class="modal__form-group-area">
+							<label class="modal__form-group-label" for="message">
+								Сообщение:
+							</label>
+							<textarea name="text" id="message" class="modal__form-group-textarea" cols="30" rows="5" autocomplete="off"></textarea>
+						</div>
+
+						<div class="modal__upload-file">
+							<input type="file" name="files[]" id="file" class="modal__upload-file-input" accept=".jpg, .jpeg, .png, .gif, .bmp, .doc, .docx, .xls, .xlsx, .txt, .tar, .zip, .7z, .7zip" multiple>
+							<label class="modal__upload-file-label" for="file">
+								<svg width="8" height="16" viewBox="0 0 8 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M3.0625 16C1.51169 16 0.25 14.7383 0.25 13.1875V3.75C0.25 1.68225 1.93225 0 4 0C6.06775 0 7.75 1.68225 7.75 3.75V13.1875H6.8125V3.75C6.8125 2.19919 5.55081 0.9375 4 0.9375C2.44919 0.9375 1.1875 2.19919 1.1875 3.75V13.1875C1.1875 14.2214 2.02863 15.0625 3.0625 15.0625C4.09637 15.0625 4.9375 14.2214 4.9375 13.1875V5.625C4.9375 5.10806 4.51694 4.6875 4 4.6875C3.48306 4.6875 3.0625 5.10806 3.0625 5.625V13.1875H2.125V5.625C2.125 4.59113 2.96613 3.75 4 3.75C5.03387 3.75 5.875 4.59113 5.875 5.625V13.1875C5.875 14.7383 4.61331 16 3.0625 16Z" fill="#007DF9" />
+								</svg>
+								<span class="modal__upload-file-text">Прикрепить файл</span>
+							</label>
+						</div>
+
+						<div class="modal__check">
+							Нажимая на кнопку вы даете согласие на обработку персональных данных и соглашаетесь <a href="">с
+								политикой конфидециальности. </a>
+						</div>
+						<div class="modal__footer">
+							<button type="submit" class="btn__outline">Отправить</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Регистрация -->
+	<div class="modal modal__register hystmodal" id="register" aria-hidden="true">
+		<div class="hystmodal__wrap">
+			<div class="hystmodal__window" role="dialog" aria-modal="true">
+				<button data-hystclose class="hystmodal__close"></button>
+				<div class="modal__body">
+					<h1 class="modal__title">Регистрация</h1>
+
+					<form action="">
+						<div class="modal__form-group">
+							<label class="modal__form-group-label" for="name">
+								Ваше имя:
+							</label>
+							<input type="text" id="name" class="modal__form-group-input" required autocomplete="off"></input>
+						</div>
+						<div class="modal__form-group">
+							<label class="modal__form-group-label" for="mail">
+								E-mail:
+							</label>
+							<input type="email" id="mail" class="modal__form-group-input" required autocomplete="off"></input>
+						</div>
+						<div class="modal__form-group">
+							<label class="modal__form-group-label" for="personal-account">
+								№ лицевого счета
+							</label>
+							<input type="text" id="personal-account" class="modal__form-group-input" required autocomplete="off"></input>
+						</div>
+
+						<div class="modal__check">
+							Нажимая на кнопку вы даете согласие на обработку персональных данных и соглашаетесь <a href="">с
+								политикой конфидециальности. </a>
+						</div>
+						<div class="modal__footer">
+							<button type="submit" class="btn__outline">Зарегистрироваться</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Вход -->
+	<div class="modal modal__enter hystmodal" id="enter" aria-hidden="true">
+		<div class="hystmodal__wrap">
+			<div class="hystmodal__window" role="dialog" aria-modal="true">
+				<button data-hystclose class="hystmodal__close"></button>
+				<div class="modal__body">
+					<h1 class="modal__title">Вход</h1>
+
+					<form action="">
+						<div class="modal__form-group">
+							<label class="modal__form-group-label" for="name">
+								Ваше имя:
+							</label>
+							<input type="text" id="name" class="modal__form-group-input" required autocomplete="off"></input>
+						</div>
+						<div class="modal__form-group">
+							<label class="modal__form-group-label" for="password">
+								Пароль
+							</label>
+							<input type="password" id="password" class="modal__form-group-input" required autocomplete="off"></input>
+						</div>
+						<div class="modal__footer">
+							<button type="submit" class="btn__outline">Войти</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Обратная связь -->
+	<div class="modal hystmodal" id="service" aria-hidden="true">
+		<div class="hystmodal__wrap">
+			<div class="hystmodal__window" role="dialog" aria-modal="true">
+				<button data-hystclose class="hystmodal__close"></button>
+				<div class="modal__body">
+					<h1 class="modal__title">Заказать услугу – <span>Вызов сантехника</span></h1>
+
+					<form action="">
+						<div class="modal__form-group">
+							<label class="modal__form-group-label" for="time">
+								Дата, время :
+							</label>
+							<input type="date" id="time" class="modal__form-group-input" required autocomplete="off"></input>
+						</div>
+						<div class="modal__form-group">
+							<label class="modal__form-group-label" for="phone">
+								Телефон:
+							</label>
+							<input type="text" id="phone-mask" class="modal__form-group-input" required autocomplete="off"></input>
+						</div>
+						<div class="modal__form-group-area">
+							<label class="modal__form-group-label" for="message">
+								Сообщение:
+							</label>
+							<textarea name="text" id="message" class="modal__form-group-textarea" cols="30" rows="5" autocomplete="off"></textarea>
+						</div>
+
+						<div class="modal__check">
+							Нажимая на кнопку вы даете согласие на обработку персональных данных и соглашаетесь <a href="">с
+								политикой конфидециальности. </a>
+						</div>
+						<div class="modal__footer">
+							<button type="submit" class="btn__outline">Заказать услугу</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Отправить резюме -->
+	<div class="modal hystmodal" id="resume" aria-hidden="true">
+		<div class="hystmodal__wrap">
+			<div class="hystmodal__window" role="dialog" aria-modal="true">
+				<button data-hystclose class="hystmodal__close"></button>
+				<div class="modal__body">
+					<h1 class="modal__title">Отправить резюме</h1>
+
+					<form action="">
+						<div class="modal__form-group">
+							<label class="modal__form-group-label" for="name">
+								Ваше имя:
+							</label>
+							<input type="text" id="name" class="modal__form-group-input" required autocomplete="off"></input>
+						</div>
+						<div class="modal__form-group">
+							<label class="modal__form-group-label" for="mail">
+								E-mail:
+							</label>
+							<input type="email" id="mail" class="modal__form-group-input" required autocomplete="off"></input>
+						</div>
+						<div class="modal__form-group-area">
+							<label class="modal__form-group-label" for="message">
+								Сообщение:
+							</label>
+							<textarea name="text" id="message" class="modal__form-group-textarea" cols="30" rows="5" autocomplete="off"></textarea>
+						</div>
+
+						<div class="modal__upload-file">
+							<input type="file" name="files[]" id="file" class="modal__upload-file-input" accept=".jpg, .jpeg, .png, .gif, .bmp, .doc, .docx, .xls, .xlsx, .txt, .tar, .zip, .7z, .7zip" multiple>
+							<label class="modal__upload-file-label" for="file">
+								<svg width="8" height="16" viewBox="0 0 8 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M3.0625 16C1.51169 16 0.25 14.7383 0.25 13.1875V3.75C0.25 1.68225 1.93225 0 4 0C6.06775 0 7.75 1.68225 7.75 3.75V13.1875H6.8125V3.75C6.8125 2.19919 5.55081 0.9375 4 0.9375C2.44919 0.9375 1.1875 2.19919 1.1875 3.75V13.1875C1.1875 14.2214 2.02863 15.0625 3.0625 15.0625C4.09637 15.0625 4.9375 14.2214 4.9375 13.1875V5.625C4.9375 5.10806 4.51694 4.6875 4 4.6875C3.48306 4.6875 3.0625 5.10806 3.0625 5.625V13.1875H2.125V5.625C2.125 4.59113 2.96613 3.75 4 3.75C5.03387 3.75 5.875 4.59113 5.875 5.625V13.1875C5.875 14.7383 4.61331 16 3.0625 16Z" fill="#007DF9" />
+								</svg>
+								<span class="modal__upload-file-text">Прикрепить файл с резюме</span>
+							</label>
+						</div>
+
+						<div class="modal__check">
+							Нажимая на кнопку вы даете согласие на обработку персональных данных и соглашаетесь <a href="">с
+								политикой конфидециальности. </a>
+						</div>
+						<div class="modal__footer">
+							<button type="submit" class="btn__outline">Отправить</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/hystmodal@0.5.1/dist/hystmodal.min.js?_v=20220829170511"></script>
+	<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js?_v=20220829170511"></script>
+	<script src="js/app.min.js?_v=20220829170511"></script>
+
+</body>
+
+</html>
